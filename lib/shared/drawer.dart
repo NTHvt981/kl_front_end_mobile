@@ -57,6 +57,11 @@ class _MyDrawerState extends State<MyDrawer> {
         arguments: CreateMessagePageArguments(userId: userId));
   }
 
+  void goToSetting() {
+    ExtendedNavigator.root.push(Routes.settingPage,
+        arguments: SettingPageArguments(userId: userId));
+  }
+
   void logOut() {
     auth.signOut().then((value) {
 
@@ -107,6 +112,12 @@ class _MyDrawerState extends State<MyDrawer> {
               leading: Icon(Feather.mail),
               title: Text('View all of your messages here.'),
               onTap: goToMessageList
+          ),
+          Divider(),
+          ListTile(
+              leading: Icon(AntDesign.setting),
+              title: Text('View your information, and setting here.'),
+              onTap: goToSetting
           ),
           Divider(),
           ListTile(

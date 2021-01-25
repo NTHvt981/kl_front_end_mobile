@@ -57,15 +57,6 @@ class _ClothesDetailPageState extends State<ClothesDetailPage> {
   }
 
   void onItemPress(String _type) {
-    // log('Press on $_type');
-
-    // setState(() {
-    //   displayedItems.clear();
-    //   allItems.forEach((item) {
-    //     if (item.type == _type)
-    //       displayedItems.add(item);
-    //   });
-    // });
 
     List<Item> _displayedItems = [];
     allItems.forEach((item) {

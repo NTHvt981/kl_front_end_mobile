@@ -13,6 +13,7 @@ import '../models/message.dart';
 import '../models/order.dart';
 import '../pages/clothes/clothes_detail_page.dart';
 import '../pages/clothes/clothes_list_page.dart';
+import '../pages/customer/setting_page.dart';
 import '../pages/dashboard_page.dart';
 import '../pages/login_page.dart';
 import '../pages/messages/create_message_page.dart';
@@ -37,6 +38,7 @@ class Routes {
   static const String orderDetailPage = '/order-detail-page';
   static const String orderListPage = '/order-list-page';
   static const String createMessagePage = '/create-message-page';
+  static const String settingPage = '/setting-page';
   static const String messageDetailPage = '/message-detail-page';
   static const String messageListPage = '/message-list-page';
   static const all = <String>{
@@ -51,6 +53,7 @@ class Routes {
     orderDetailPage,
     orderListPage,
     createMessagePage,
+    settingPage,
     messageDetailPage,
     messageListPage,
   };
@@ -71,6 +74,7 @@ class MyRouter extends RouterBase {
     RouteDef(Routes.orderDetailPage, page: OrderDetailPage),
     RouteDef(Routes.orderListPage, page: OrderListPage),
     RouteDef(Routes.createMessagePage, page: CreateMessagePage),
+    RouteDef(Routes.settingPage, page: SettingPage),
     RouteDef(Routes.messageDetailPage, page: MessageDetailPage),
     RouteDef(Routes.messageListPage, page: MessageListPage),
   ];
@@ -176,6 +180,16 @@ class MyRouter extends RouterBase {
         settings: data,
       );
     },
+    SettingPage: (data) {
+      final args = data.getArgs<SettingPageArguments>(nullOk: false);
+      return PageRouteBuilder<dynamic>(
+        pageBuilder: (context, animation, secondaryAnimation) => SettingPage(
+          key: args.key,
+          userId: args.userId,
+        ),
+        settings: data,
+      );
+    },
     MessageDetailPage: (data) {
       final args = data.getArgs<MessageDetailPageArguments>(nullOk: false);
       return MaterialPageRoute<dynamic>(
@@ -253,6 +267,13 @@ class CreateMessagePageArguments {
   final Key key;
   final String userId;
   CreateMessagePageArguments({this.key, @required this.userId});
+}
+
+/// SettingPage arguments holder class
+class SettingPageArguments {
+  final Key key;
+  final String userId;
+  SettingPageArguments({this.key, @required this.userId});
 }
 
 /// MessageDetailPage arguments holder class

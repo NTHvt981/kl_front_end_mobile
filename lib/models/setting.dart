@@ -1,0 +1,3 @@
+class Setting {
+  String color;
+}

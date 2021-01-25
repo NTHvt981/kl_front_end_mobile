@@ -45,6 +45,11 @@ dependencies:
   cupertino_icons: ^1.0.0
   flutter_icons: ^1.1.0
 
+  flutter_number_picker:
+    git: https://github.com/phuongtinhbien/flutter_number_picker.git
+
+  image_picker: ^0.6.7+21
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

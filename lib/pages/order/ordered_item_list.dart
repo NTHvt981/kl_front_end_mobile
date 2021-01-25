@@ -1,4 +1,5 @@
 import 'package:do_an_ui/models/item.dart';
+import 'package:do_an_ui/pages/constraints.dart';
 import 'package:flutter/material.dart';
 
 class OrderedItemList extends StatelessWidget {
@@ -28,6 +29,7 @@ class OrderedItemList extends StatelessWidget {
               child: (data[pos].imageUrl != null)? Image.network(data[pos].imageUrl): Text('')
           ),
           title: Text(data[pos].name),
+          trailing: Text(formatMoney(data[pos].price)),
         ),
         separatorBuilder: (context, pos) => Divider() ,
         itemCount: data.length);

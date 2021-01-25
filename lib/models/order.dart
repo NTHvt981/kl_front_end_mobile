@@ -10,6 +10,7 @@ const ADDRESS = 'DiaChi';
 const CREATED_TIME = 'ThoiGianDatHang';
 const STATE = 'TinhTrang';
 const TOTAL = 'TongCong';
+const DISCOUNT = 'KhuyenMai';
 
 const ORDER_STATE_INIT = 'Đặt hàng thành công';
 const ORDER_STATE_TAKING_IN = 'Đã tiếp nhận đơn hàng';
@@ -27,6 +28,7 @@ class Order {
   Timestamp createdTime;
   String state;
   int total;
+  int discount;
 
   Order();
 
@@ -40,7 +42,8 @@ class Order {
 
     CREATED_TIME: createdTime,
     STATE: state,
-    TOTAL: total
+    TOTAL: total,
+    DISCOUNT: discount
   };
 
   Order.fromMap(Map<String, dynamic> map):
@@ -54,5 +57,6 @@ class Order {
 
         createdTime = map[CREATED_TIME] as Timestamp,
         state = map[STATE],
-        total = map[TOTAL];
+        total = map[TOTAL],
+        discount = 0;
 }
