@@ -9,12 +9,14 @@ class CustomerService {
 
   Future<Customer> readOnce(String id) {
     return firestore.collection(root).doc(id).get().then((snapshot) {
+      if (!snapshot.exists) return null;
       return Customer.fromMap(snapshot.data());
     });
   }
 
   Stream<Customer> readLive(String id) {
     return firestore.collection(root).doc(id).snapshots().map((snapshot) {
+      if (!snapshot.exists) return null;
       return Customer.fromMap(snapshot.data());
     });
   }
@@ -28,7 +30,7 @@ class CustomerService {
 
   Future<void> update(Customer cus) async {
     firestore.collection(root).doc(cus.id)
-        .update(cus.toMap());
+        .set(cus.toMap());
   }
 }
 

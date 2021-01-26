@@ -17,6 +17,11 @@ class Customer {
 
   Customer(String _id) {
     id = _id;
+    point = 0;
+    ticket = 0;
+    name = "";
+    phoneNumber = "";
+    address = "";
   }
 
   void convertPointToTicket(int p) {

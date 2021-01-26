@@ -63,6 +63,10 @@ class _SettingPageState extends State<SettingPage> {
   }
 
   void save() {
+     customer.name = nameController.text;
+     customer.phoneNumber = phoneController.text;
+     customer.address = addressController.text;
+
     customerService.update(customer).then((value) => {
       Toast.show("Save your information successfully!", context)
     });
@@ -76,17 +80,17 @@ class _SettingPageState extends State<SettingPage> {
       if (cus != null) customer = cus;
       else customer = new Customer(widget.userId);
 
-      nameController.text = cus.name;
-      phoneController.text = cus.phoneNumber;
-      addressController.text = cus.address;
+      nameController.text = customer.name;
+      phoneController.text = customer.phoneNumber;
+      addressController.text = customer.address;
 
-      ticketController.text = cus.ticket.toString();
-      pointController.text = cus.point.toString();
+      ticketController.text = customer.ticket.toString();
+      pointController.text = customer.point.toString();
 
       setState(() {
-        imageUrl = cus.imageUrl;
+        imageUrl = customer.imageUrl;
         convertPoint = 0;
-        maxConvertPoint = cus.point;
+        maxConvertPoint = customer.point;
       });
     });
   }
@@ -101,13 +105,8 @@ class _SettingPageState extends State<SettingPage> {
         child: Column(children: [
             Expanded(child: Padding(
               padding: const EdgeInsets.all(8.0),
-              child: GestureDetector(
-                onDoubleTap: changeAvatar,
-                onTap: changeAvatar,
-                child: Center(
-                  child: imageUrl != null? imageUrl.isNotEmpty? Image.network(imageUrl):
-                  Image.asset("images/image_box.png"): Image.asset("images/image_box.png")
-                ),
+              child: Center(
+                child: Image.asset("images/pic_user.png")
               ),
             ), flex: 4,),
 
@@ -182,10 +181,6 @@ class _SettingPageState extends State<SettingPage> {
               ],),
 
               Divider(),
-              Center(child: Text("SETTINGS", style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold
-              ),),)
             ],
           ), flex: 9,),
           Expanded(child: SizedBox(

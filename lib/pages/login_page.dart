@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:do_an_ui/routes/router.gr.dart';
 
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:toast/toast.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -27,7 +28,7 @@ class _LoginPageState extends State<LoginPage> {
     }).catchError((err) {
       var ex = err as FirebaseAuthException;
       var msg = ex.message;
-      log("Error sign in $msg");
+      Toast.show("Error sign in $msg", context);
     });
   }
 
@@ -78,13 +79,17 @@ class _LoginPageState extends State<LoginPage> {
                 child: RaisedButton(
                   onPressed: signIn,
                   child: Text('Login'),
+                  color: Theme.of(context).primaryColor,
+                  textColor: Theme.of(context).buttonColor,
                 ),
               ),
               SizedBox(
                 width: double.infinity,
                 child: RaisedButton(
                   onPressed: goToSignUp,
-                  child: Text('go to sign up'),
+                  child: Text('go to sign up page'),
+                  color: Theme.of(context).buttonColor,
+                  textColor: Theme.of(context).primaryColor,
                 ),
               )
             ],
