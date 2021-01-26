@@ -23,16 +23,19 @@ class MovableItem extends StatefulWidget {
 }): super(key: key);
 
   @override
-  _MovableItemState createState() => _MovableItemState(type);
+  _MovableItemState createState() => _MovableItemState(type, width, height);
 }
 
 class _MovableItemState extends State<MovableItem> {
   Offset hatOffset = Offset(0, 0);
   LocalItemService service;
   Item item;
+  double width, height;
   
-  _MovableItemState(String _type) {
+  _MovableItemState(String _type, double w, double h) {
     service = localItemService[_type];
+    width = w;
+    width = h;
 
     switch (_type)
     {
