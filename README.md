@@ -65,12 +65,22 @@ Dịch vụ này giúp nhà phát triển triển khai và mở rộng quy mô c
 
 ## Database
 ###Sơ đồ cơ sở dữ liệu
-![alt text](https://drive.google.com/file/d/1iDizGUD32TCh3CfmVYyeq4XmNJVUga-7/view?usp=sharing)
+![alt text](https://drive.google.com/uc?export=view&id=1iDizGUD32TCh3CfmVYyeq4XmNJVUga-7)
 
 ## Diagram
 ###Sơ đồ use case cho khách hàng sử dụng ứng dụng mobile
-![alt text](https://drive.google.com/file/d/1ASIH0BdwgBLEFFbSnJTM2jq0_qJqbhRE/view?usp=sharing)
+![alt text](https://drive.google.com/uc?export=view&id=1ASIH0BdwgBLEFFbSnJTM2jq0_qJqbhRE)
 
-##Thành viên thực hiện
+## Thành viên thực hiện
 - Nguyễn Trung Hiếu - 17520480
 - Nguyễn Hữu Mạnh Quân - 17520938
+
+## Giấy phép sử dụng
+**You agree not to**:
+(a) reproduce, copy, distribute, modify, publish, transmit, display, use, reuse, re-publicize, assign, 
+sublicense, sell, or exploit for any public or commercial purpose, any portion of the App, use of the App, 
+or access to the App.
+(b) attempt to change, add to, remove, deface, hack or otherwise interfere with this App or any material 
+or content displayed on this App; and/or
+(c) access or use this App in any way that could or is intended to damage or impair the App, or any server 
+or network underlying the App, or interfere with anyone else's use and enjoyment of the App.
