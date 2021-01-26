@@ -64,11 +64,11 @@ Thư viện cung cấp các widget cần thiết
 Dịch vụ này giúp nhà phát triển triển khai và mở rộng quy mô của ứng dụng mobile nhanh hơn
 
 ## Database
-###Sơ đồ cơ sở dữ liệu
+### Sơ đồ cơ sở dữ liệu
 ![alt text](https://drive.google.com/uc?export=view&id=1iDizGUD32TCh3CfmVYyeq4XmNJVUga-7)
 
 ## Diagram
-###Sơ đồ use case cho khách hàng sử dụng ứng dụng mobile
+### Sơ đồ use case cho khách hàng sử dụng ứng dụng mobile
 ![alt text](https://drive.google.com/uc?export=view&id=1ASIH0BdwgBLEFFbSnJTM2jq0_qJqbhRE)
 
 ## Thành viên thực hiện
