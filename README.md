@@ -1,10 +1,5 @@
 # Tên sản phẩm: Ứng dụng thời trang Mobile
 
-Thành viên thực hiện
--
--
--
-
 ## Chức năng sản phẩm
 - Đọc tin tức cũng như các bài viết (mẹo) về thời trang.
 - Lựa chọn cái nhìn tổng quan từ ý tưởng phối đồ của người dùng.
@@ -62,3 +57,20 @@ Cung cấp thư viện icon
 
 ### flutter_number_picker, image_picker
 Thư viện cung cấp các widget cần thiết
+
+## Backend
+Ứng dụng sử dụng firebase
+- Firebase là 1 dịch vụ hệ thống backend được Google cung cấp sẵn cho ứng dụng. 
+Dịch vụ này giúp nhà phát triển triển khai và mở rộng quy mô của ứng dụng mobile nhanh hơn
+
+## Database
+###Sơ đồ cơ sở dữ liệu
+![alt text](https://drive.google.com/file/d/1iDizGUD32TCh3CfmVYyeq4XmNJVUga-7/view?usp=sharing)
+
+## Diagram
+###Sơ đồ use case cho khách hàng sử dụng ứng dụng mobile
+![alt text](https://drive.google.com/file/d/1ASIH0BdwgBLEFFbSnJTM2jq0_qJqbhRE/view?usp=sharing)
+
+##Thành viên thực hiện
+- Nguyễn Trung Hiếu - 17520480
+- Nguyễn Hữu Mạnh Quân - 17520938
