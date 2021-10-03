@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
 
-      builder: route.ExtendedNavigator.builder<MyRouter>(
+      builder: route.ExtendedNavigator(
           router: MyRouter(),
           // pass anything navigation related to ExtendedNav instead of MaterialApp
           initialRoute: Routes.loginPage
