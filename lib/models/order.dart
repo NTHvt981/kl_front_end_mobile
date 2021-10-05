@@ -18,17 +18,15 @@ const ORDER_STATE_SUCCESS = 'Giao hàng thành công';
 const ORDER_STATE_CANCELED = 'Đã huỷ';
 
 class Order {
-  String id;
-  String userId;
-
-  String userName;
-  String phoneNumber;
-  String address;
-
-  Timestamp createdTime;
-  String state;
-  int total;
-  int discount;
+  late String id;
+  late String userId;
+  late String userName;
+  late String phoneNumber;
+  late String address;
+  late Timestamp createdTime;
+  late String state;
+  late int total;
+  late int discount;
 
   Order();
 

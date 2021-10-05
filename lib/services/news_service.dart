@@ -21,7 +21,7 @@ class NewsService {
 
   Future<News> readOnce(String id) {
     return firestore.collection(root).doc(id).get().then((snapshot) {
-      return News.fromMap(snapshot.data());
+      return News.fromMap(snapshot.data()!);
     });
   }
   

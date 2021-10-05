@@ -17,18 +17,15 @@ const BRAND = 'Hang';
 const COLOR = 'Mau';
 
 class Item {
-  String id;
-  String name;
-  String type;
-
-  String imageUrl;
-  String description;
-
-  int number;
-  int price;
-
-  String brand;
-  String color;
+  late String id;
+  late String name;
+  late String type;
+  late String imageUrl;
+  late String description;
+  late int number;
+  late int price;
+  late String brand;
+  late String color;
 
   Item();
 

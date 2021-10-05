@@ -14,8 +14,8 @@ class ClothesListPage extends StatefulWidget {
   final String userId;
 
   ClothesListPage({
-    Key key,
-    @required this.userId
+    Key? key,
+    required this.userId
   }): super(key: key);
 
   @override
@@ -66,24 +66,25 @@ class _ClothesListPageState extends State<ClothesListPage> {
 
   onSelectCollection(ClothesCollection collection) {
     if (collection.hatId != null)
-      itemService.readOnce(collection.hatId).then((value) => localItemService[HAT].set(value));
+      itemService.readOnce(collection.hatId).then((value) => localItemService[HAT]!.set(value));
 
     if (collection.shirtId != null)
-      itemService.readOnce(collection.shirtId).then((value) => localItemService[SHIRT].set(value));
+      itemService.readOnce(collection.shirtId).then((value) => localItemService[SHIRT]!.set(value));
 
     if (collection.pantsId != null)
-      itemService.readOnce(collection.pantsId).then((value) => localItemService[PANTS].set(value));
+      itemService.readOnce(collection.pantsId).then((value) => localItemService[PANTS]!.set(value));
 
     if (collection.shoesId != null)
-      itemService.readOnce(collection.shoesId).then((value) => localItemService[SHOES].set(value));
+      itemService.readOnce(collection.shoesId).then((value) => localItemService[SHOES]!.set(value));
 
     if (collection.backpackId != null)
-      itemService.readOnce(collection.backpackId).then((value) => localItemService[BACKPACK].set(value));
+      itemService.readOnce(collection.backpackId).then((value) => localItemService[BACKPACK]!.set(value));
 
-    ExtendedNavigator.root.popAndPush(
-      Routes.clothesDetailPage,
-      arguments: ClothesDetailPageArguments(userId: widget.userId)
-    );
+    context.router.popAndPush(ClothesDetailPageRoute(userId: widget.userId));
+    // ExtendedNavigator.root.popAndPush(
+    //   Routes.clothesDetailPage,
+    //   arguments: ClothesDetailPageArguments(userId: widget.userId)
+    // );
   }
 
   onDeleteCollection(ClothesCollection collection) {

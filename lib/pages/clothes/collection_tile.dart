@@ -7,10 +7,10 @@ class CollectionListTile extends StatelessWidget {
   final Function(ClothesCollection a) onDelete;
 
   CollectionListTile({
-    Key key,
-    @required this.data,
-    @required this.onSelect,
-    @required this.onDelete
+    Key? key,
+    required this.data,
+    required this.onSelect,
+    required this.onDelete
   }): super(key: key);
 
   @override

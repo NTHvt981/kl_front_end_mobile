@@ -10,10 +10,9 @@ class MessageDetailPage extends StatefulWidget {
   final Message message;
 
   MessageDetailPage({
-    Key key,
-    @required this.userId,
-    @required this.message
-}): super(key: key);
+    required this.userId,
+    required this.message
+}): super();
 
   @override
   _MessageDetailPageState createState() => _MessageDetailPageState(message: message);
@@ -25,7 +24,7 @@ class _MessageDetailPageState extends State<MessageDetailPage> {
   TextEditingController replyCon = new TextEditingController();
 
   _MessageDetailPageState({
-    @required this.message,
+    required this.message,
   });
 
   void submitText() {

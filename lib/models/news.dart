@@ -8,12 +8,12 @@ const URL = 'DuongDan';
 const CREATED_TIME = 'ThoiGianTao';
 
 class News {
-  String id;
-  String title;
-  String subTitle;
-  String imageUrl;
-  String url;
-  Timestamp createdTime;
+  late String id;
+  late String title;
+  late String subTitle;
+  late String imageUrl;
+  late String url;
+  late Timestamp createdTime;
 
   News();
 

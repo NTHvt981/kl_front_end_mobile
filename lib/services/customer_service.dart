@@ -7,17 +7,17 @@ class CustomerService {
   FirebaseFirestore firestore = FirebaseFirestore.instance;
   String root = 'KhachHang';
 
-  Future<Customer> readOnce(String id) {
+  Future<Customer?> readOnce(String id) {
     return firestore.collection(root).doc(id).get().then((snapshot) {
       if (!snapshot.exists) return null;
-      return Customer.fromMap(snapshot.data());
+      return Customer.fromMap(snapshot.data()!);
     });
   }
 
-  Stream<Customer> readLive(String id) {
+  Stream<Customer?> readLive(String id) {
     return firestore.collection(root).doc(id).snapshots().map((snapshot) {
       if (!snapshot.exists) return null;
-      return Customer.fromMap(snapshot.data());
+      return Customer.fromMap(snapshot.data()!);
     });
   }
 

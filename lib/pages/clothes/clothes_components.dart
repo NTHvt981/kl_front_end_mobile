@@ -13,13 +13,13 @@ class MovableItem extends StatefulWidget {
   final Function(MovableItem _this) onPositionPress;
   
   MovableItem({
-    Key key,
-    @required this.width,
-    @required this.height,
-    @required this.type,
-    @required this.imageUrl,
-    @required this.onPress,
-    @required this.onPositionPress
+    required Key key,
+    required this.width,
+    required this.height,
+    required this.type,
+    required this.imageUrl,
+    required this.onPress,
+    required this.onPositionPress
 }): super(key: key);
 
   @override
@@ -28,9 +28,9 @@ class MovableItem extends StatefulWidget {
 
 class _MovableItemState extends State<MovableItem> {
   Offset hatOffset = Offset(0, 0);
-  LocalItemService service;
-  Item item;
-  double width, height;
+  LocalItemService? service;
+  Item? item;
+  late double width, height;
   
   _MovableItemState(String _type, double w, double h) {
     service = localItemService[_type];
@@ -57,10 +57,10 @@ class _MovableItemState extends State<MovableItem> {
         break;
     }
 
-    service.getStream().listen((_) {
-      if (mounted)
+    service!.getStream().listen((_item) {
+      if (mounted && _item != null)
         setState(() {
-          item = _;
+          item = _item;
         });
     });
   }
@@ -69,7 +69,7 @@ class _MovableItemState extends State<MovableItem> {
   Widget build(BuildContext context) {
     var image = (item == null)
         ? Image.asset(widget.imageUrl, width: widget.width, height: widget.height,)
-        : Image.network(item.imageUrl, width: widget.width, height: widget.height,);
+        : Image.network(item!.imageUrl, width: widget.width, height: widget.height,);
 
     return Positioned(
       child: Column(
@@ -104,13 +104,13 @@ class ItemToChooseList extends StatelessWidget {
   final List<Item> data;
 
   ItemToChooseList({
-    Key key,
-    @required this.data
+    Key? key,
+    required this.data
 }): super(key: key);
 
   chooseItem(int pos) {
     String type = data[pos].type;
-    localItemService[type].set(data[pos]);
+    localItemService[type]!.set(data[pos]);
   }
 
   @override

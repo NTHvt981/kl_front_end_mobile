@@ -4,13 +4,13 @@ import 'package:do_an_ui/models/item.dart';
 import 'package:rxdart/rxdart.dart';
 
 class LocalItemService {
-  BehaviorSubject<Item> itemBehavior;
+  late BehaviorSubject<Item?> itemBehavior;
 
   LocalItemService() {
     itemBehavior = BehaviorSubject.seeded(null);
   }
 
-  Stream<Item> getStream() {
+  Stream<Item?> getStream() {
     return itemBehavior.stream;
   }
 
@@ -29,7 +29,7 @@ class LocalItemService {
   }
 }
 
-final localItemService = {
+final Map<String, LocalItemService> localItemService = {
   HAT: LocalItemService(),
   SHIRT: LocalItemService(),
   PANTS: LocalItemService(),

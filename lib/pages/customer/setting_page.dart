@@ -15,8 +15,8 @@ class SettingPage extends StatefulWidget {
   final picker = ImagePicker();
 
   SettingPage({
-    Key key,
-    @required this.userId
+    Key? key,
+    required this.userId
   }): super(key: key);
 
   @override
@@ -31,8 +31,8 @@ class _SettingPageState extends State<SettingPage> {
   TextEditingController pointController = new TextEditingController();
   TextEditingController ticketController = new TextEditingController();
 
-  Customer customer;
-  String imageUrl;
+  late Customer customer;
+  late String imageUrl;
   int maxConvertPoint = 1000;
   int convertPoint = 0;
 

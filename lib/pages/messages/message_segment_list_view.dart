@@ -6,8 +6,8 @@ class MessageSegmentListView extends StatelessWidget {
   final List<MessageSegment> data;
 
   MessageSegmentListView({
-    Key key,
-    @required this.data,
+	Key? key,
+    required this.data,
   }):super(key: key);
 
   @override

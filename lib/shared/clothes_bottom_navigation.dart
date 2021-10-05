@@ -13,8 +13,8 @@ class ClothesBottomNavigation extends StatefulWidget {
   final int index;
 
   ClothesBottomNavigation({
-    Key key,
-    @required this.index
+    Key? key,
+    required this.index
 }): super(key: key);
 
   @override
@@ -23,7 +23,7 @@ class ClothesBottomNavigation extends StatefulWidget {
 
 class _ClothesBottomNavigationState extends State<ClothesBottomNavigation> {
   final FirebaseAuth auth = FirebaseAuth.instance;
-  String userId;
+  late String userId;
 
   @override
   void initState() {
@@ -31,7 +31,10 @@ class _ClothesBottomNavigationState extends State<ClothesBottomNavigation> {
 
     auth.authStateChanges().listen((user) {
       if (user == null)
-        ExtendedNavigator.root.replace(Routes.loginPage);
+      {
+        context.router.replace(LoginPageRoute());
+        // ExtendedNavigator.root.replace(Routes.loginPage);
+      }
       else
         setState(() {
           userId = user.uid;
@@ -41,7 +44,8 @@ class _ClothesBottomNavigationState extends State<ClothesBottomNavigation> {
 
   void onSelect(int index) {
     if (userId == null) {
-      ExtendedNavigator.root.replace(Routes.loginPage);
+      context.router.replace(LoginPageRoute());
+      // ExtendedNavigator.root.replace(Routes.loginPage);
       log("user id IS null");
     }
     else {
@@ -50,16 +54,19 @@ class _ClothesBottomNavigationState extends State<ClothesBottomNavigation> {
 
     switch (index) {
       case SAVED_COLLECTION_PAGE:
-        ExtendedNavigator.root.replace(Routes.clothesListPage,
-            arguments: ClothesListPageArguments(userId: userId));
+        context.router.replace(ClothesListPageRoute(userId: userId));
+        // ExtendedNavigator.root.replace(Routes.clothesListPage,
+        //     arguments: ClothesListPageArguments(userId: userId));
         break;
       case CLOTHES_DETAIL_PAGE:
-        ExtendedNavigator.root.replace(Routes.clothesDetailPage,
-            arguments: ClothesDetailPageArguments(userId: userId));
+        context.router.replace(ClothesDetailPageRoute(userId: userId));
+        // ExtendedNavigator.root.replace(Routes.clothesDetailPage,
+        //     arguments: ClothesDetailPageArguments(userId: userId));
         break;
       case CREATE_ORDER_PAGE:
-        ExtendedNavigator.root.replace(Routes.createOrderPage,
-            arguments: CreateOrderPageArguments(userId: userId));
+        context.router.replace(CreateOrderPageRoute(userId: userId));
+        // ExtendedNavigator.root.replace(Routes.createOrderPage,
+        //     arguments: CreateOrderPageArguments(userId: userId));
         break;
     }
   }

@@ -11,15 +11,15 @@ const BACKPACK_ID = 'MaBalo';
 const NAME = 'TenToanBoPKTT';
 
 class ClothesCollection {
-  String id;
-  String userId;
-  String imageUrl;
-  String shirtId;
-  String pantsId;
-  String hatId;
-  String shoesId;
-  String backpackId;
-  String name;
+  late String id;
+  late String userId;
+  late String imageUrl;
+  late String shirtId;
+  late String pantsId;
+  late String hatId;
+  late String shoesId;
+  late String backpackId;
+  late String name;
 
   ClothesCollection();
 

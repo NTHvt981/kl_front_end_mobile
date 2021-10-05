@@ -18,44 +18,52 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
 
-  firebase_core: ^0.5.3
-  firebase_auth: ^0.18.4+1
-  cloud_firestore: ^0.14.4
-  firebase_storage: ^5.2.0
+  firebase_core: ^1.7.0
+  firebase_auth: ^3.1.2
+  cloud_firestore: ^2.5.3
+  firebase_storage: ^10.0.4
 
   regexed_validator: ^1.0.4
 
-  auto_route: ^0.6.9
+  auto_route: ^2.4.2
 
-  webview_flutter: ^1.0.7
+#  webview_flutter: ^1.0.7
+  webview_flutter: ^2.1.1
 
-  screenshot: ^0.2.0
+#  screenshot: ^0.2.0
+  screenshot: ^1.2.3
 
   toast: ^0.1.5
 
   bubble: ^1.1.9+1
 
-  rxdart: ^0.25.0
+#  rxdart: ^0.25.0
+  rxdart: ^0.27.2
   cupertino_icons: ^1.0.0
   flutter_icons: ^1.1.0
+
+  path_provider: ^2.0.5
+  platform: ^3.0.2
+
+#  flutter_unity_widget: ^4.2.1
 
   flutter_number_picker:
     git: https://github.com/phuongtinhbien/flutter_number_picker.git
 
-  image_picker: ^0.6.7+21
+  image_picker: ^0.8.4+2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  auto_route_generator: ^0.6.9+3
-  build_runner:
+  auto_route_generator: ^2.4.1
+  build_runner: ^2.1.4
 flutter:
   uses-material-design: true
 
@@ -63,7 +71,7 @@ flutter:
   assets:
     - images/
     - images/bg/
-    - icons/
+#    - icons/
 
   fonts:
     - family: Aquire

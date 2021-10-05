@@ -31,7 +31,8 @@ class _RegisterPageState extends State<RegisterPage> {
         email: email,
         password: password
     ).then((value) {
-      route.ExtendedNavigator.root.pop();
+      context.router.pop();
+      // route.ExtendedNavigator.root.pop();
     }).catchError((err) {
       var ex = err as FirebaseAuthException;
       var msg = ex.message;
@@ -40,7 +41,8 @@ class _RegisterPageState extends State<RegisterPage> {
   }
 
   void goToSignIn() {
-    route.ExtendedNavigator.root.pop();
+    context.router.pop();
+    // route.ExtendedNavigator.root.pop();
   }
 
   @override
@@ -49,8 +51,9 @@ class _RegisterPageState extends State<RegisterPage> {
 
     auth.authStateChanges().listen((event) {
       if (auth.currentUser != null)
-        route.ExtendedNavigator.root.replace(Routes.clothesDetailPage,
-            arguments: ClothesDetailPageArguments(userId: event.uid));
+        context.router.replace(ClothesDetailPageRoute(userId: event!.uid));
+        // route.ExtendedNavigator.root.replace(Routes.clothesDetailPage,
+        //     arguments: ClothesDetailPageArguments(userId: event.uid));
     });
   }
 

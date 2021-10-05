@@ -6,9 +6,9 @@ class MessageListView extends StatelessWidget {
   final Function(Message message) onSelect;
 
   MessageListView({
-    Key key,
-    @required this.data,
-    @required this.onSelect
+    Key? key,
+    required this.data,
+    required this.onSelect
 }):super(key: key);
 
   @override

@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:do_an_ui/models/item.dart';
 import 'package:do_an_ui/services/local_item_service.dart';
 import 'package:flutter/cupertino.dart';
@@ -10,9 +12,9 @@ class SelectItemDialog extends StatelessWidget {
   final String type;
 
   SelectItemDialog({
-    Key key,
-    @required this.data,
-    @required this.type,
+    Key? key,
+    required this.data,
+    required this.type,
   }): super(key: key);
 
   @override
@@ -33,7 +35,7 @@ class SelectItemDialog extends StatelessWidget {
                 itemBuilder: (context, position) {
                   return DialogItemTile(data: data[position],
                       chooseItem: (item) {
-                        localItemService[type].set(item);
+                        localItemService[type]!.set(item);
                         Navigator.of(context).pop();
                       });
                 },
@@ -45,7 +47,7 @@ class SelectItemDialog extends StatelessWidget {
               width: double.infinity,
               child: RaisedButton(
                 onPressed: () {
-                  localItemService[type].set(null);
+                  // localItemService[type]!.set();
                   Navigator.of(context).pop();
                 },
                 child: Text('RESET'),
@@ -65,9 +67,9 @@ class DialogItemTile extends StatelessWidget {
   final Function(Item item) chooseItem;
 
   DialogItemTile({
-    Key key,
-    @required this.data,
-    @required this.chooseItem,
+    Key? key,
+    required this.data,
+    required this.chooseItem,
   }): super(key: key);
 
   @override

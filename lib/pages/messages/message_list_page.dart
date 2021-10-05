@@ -13,9 +13,8 @@ class MessageListPage extends StatefulWidget {
   final String userId;
 
   MessageListPage({
-    Key key,
-    @required this.userId
-}): super(key: key);
+    required this.userId
+}): super();
 
   @override
   _MessageListPageState createState() => _MessageListPageState();
@@ -59,15 +58,17 @@ class _MessageListPageState extends State<MessageListPage> {
   }
 
   onSelect(Message message) {
-    ExtendedNavigator.root.push(
-      Routes.messageDetailPage,
-      arguments: MessageDetailPageArguments(userId: widget.userId, message: message)
-    );
+    context.router.push(MessageDetailPageRoute(userId: widget.userId, message: message));
+    // ExtendedNavigator.root.push(
+    //   Routes.messageDetailPage,
+    //   arguments: MessageDetailPageArguments(userId: widget.userId, message: message)
+    // );
   }
 
   createNewMessage() {
-    ExtendedNavigator.root.push(
-        Routes.createMessagePage, arguments: CreateMessagePageArguments(userId: widget.userId)
-    );
+    context.router.push(CreateMessagePageRoute(userId: widget.userId));
+    // ExtendedNavigator.root.push(
+    //     Routes.createMessagePage, arguments: CreateMessagePageArguments(userId: widget.userId)
+    // );
   }
 }

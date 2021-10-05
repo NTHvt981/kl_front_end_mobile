@@ -43,7 +43,7 @@ class ItemService {
 
   Future<Item> readOnce(String id) {
     return firestore.collection(root).doc(id).get().then((snapshot) {
-      return Item.fromMap(snapshot.data());
+      return Item.fromMap(snapshot.data()!);
     });
   }
 }

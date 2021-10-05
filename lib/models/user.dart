@@ -5,9 +5,9 @@ const ADMIN = 'QuanTri';
 const EMAIL = 'Email';
 
 class User {
-  String id;
-  String email;
-  Map roles = {
+  late String id;
+  late String email;
+  late Map roles = {
     CUSTOMER: bool,
     ADMIN: bool
   };

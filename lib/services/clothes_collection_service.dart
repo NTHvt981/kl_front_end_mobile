@@ -45,7 +45,7 @@ class ClothesCollectionService {
     collection.name = '';
 
     localItemService.forEach((type, ser) {
-      Item item = ser.itemBehavior.value;
+      Item? item = ser.itemBehavior.value;
 
       if (item != null)
         {

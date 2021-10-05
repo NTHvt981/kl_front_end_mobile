@@ -10,14 +10,14 @@ const CREATED_BY_ADMIN = 'DoQuanTriTao';
 const CREATED_TIME = 'ThoiGianTao';
 
 class MessageSegment {
-  String id;
-  String messageId;
-  String creatorId;
-  String creatorName;
-  String content;
-  String imageUrl;
-  bool createdByAdmin;
-  Timestamp createdTime;
+  late String id;
+  late String messageId;
+  late String creatorId;
+  late String creatorName;
+  late String content;
+  late String imageUrl;
+  late bool createdByAdmin;
+  late Timestamp createdTime;
 
   MessageSegment() {
     createdTime = Timestamp.now();

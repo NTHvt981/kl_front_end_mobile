@@ -9,8 +9,8 @@ class OrderListPage extends StatefulWidget {
   final String userId;
 
   OrderListPage({
-    Key key,
-    @required this.userId
+    Key? key,
+    required this.userId
 }): super(key: key);
 
   @override
@@ -63,7 +63,8 @@ class _OrderListPageState extends State<OrderListPage> {
   }
 
   void onSelect(Order order) {
-    ExtendedNavigator.root.push(
-        Routes.orderDetailPage, arguments: OrderDetailPageArguments(order: order));
+    context.router.push(OrderDetailPageRoute(order: order));
+    // ExtendedNavigator.root.push(
+    //     OrderDetailRoute.name, arguments: OrderDetailPageArguments(order: order));
   }
 }

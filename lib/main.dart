@@ -1,5 +1,5 @@
 
-import 'package:auto_route/auto_route.dart' as route;
+import 'package:auto_route/auto_route.dart';
 import 'package:do_an_ui/routes/router.gr.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -11,21 +11,25 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
+  final _appRouter = AppRouter();
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
+      routerDelegate: _appRouter.delegate(),
+      routeInformationParser: _appRouter.defaultRouteParser(),
       title: 'UngDungThoiTrangMobile',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
 
-      builder: route.ExtendedNavigator(
-          router: MyRouter(),
-          // pass anything navigation related to ExtendedNav instead of MaterialApp
-          initialRoute: Routes.loginPage
-      ),
+      // builder: AppRouter(
+      //     router: MyRouter(),
+      //     // pass anything navigation related to ExtendedNav instead of MaterialApp
+      //     initialRoute: Routes.loginPage
+      // ),
     );
   }
 

@@ -1,4 +1,5 @@
 import 'dart:developer';
+import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:do_an_ui/main.dart';
@@ -20,8 +21,8 @@ class ClothesDetailPage extends StatefulWidget {
   final String userId;
 
   ClothesDetailPage({
-    Key key,
-    @required this.userId
+    Key? key,
+    required this.userId
   }): super(key: key);
 
   @override
@@ -82,10 +83,10 @@ class _ClothesDetailPageState extends State<ClothesDetailPage> {
 
   void saveCollection() {
     String randomId = Timestamp.now().nanoseconds.toString();
-    String uid = FirebaseAuth.instance.currentUser.uid;
+    String uid = FirebaseAuth.instance.currentUser!.uid;
 
     screenshotController.capture().then((file) {
-      storage.ref('QuanAo/$randomId.png').putFile(file).then((snapshot) async {
+      storage.ref('QuanAo/$randomId.png').putFile(File.fromRawPath(file!)).then((snapshot) async {
         String imageUrl = await snapshot.ref.getDownloadURL().then((value) => value);
 
         log('upload file success, url: $imageUrl');

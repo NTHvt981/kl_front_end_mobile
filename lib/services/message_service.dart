@@ -39,7 +39,7 @@ class MessageService {
 
   Future<Message> readOnce(String id) {
     return firestore.collection(root).doc(id).get().then((snapshot) {
-      return Message.fromMap(snapshot.data());
+      return Message.fromMap(snapshot.data()!);
     });
   }
 

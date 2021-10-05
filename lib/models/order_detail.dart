@@ -7,13 +7,12 @@ const IMAGE_URL = 'Hinh';
 const PRICE = 'Gia';
 
 class OrderDetail {
-  String id;
-  String orderId;
-  String itemId;
-  String imageUrl;
-
-  String name;
-  int price;
+  late String id;
+  late String orderId;
+  late String itemId;
+  late String imageUrl;
+  late String name;
+  late int price;
 
   OrderDetail();
 

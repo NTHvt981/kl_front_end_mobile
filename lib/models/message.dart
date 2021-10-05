@@ -9,13 +9,13 @@ const CREATED_TIME = 'ThoiGianTao';
 const IS_OVER = 'KetThuc';
 
 class Message {
-  String id;
-  String creatorId;
-  String creatorName;
-  String title;
-  bool createdByAdmin;
-  Timestamp createdTime;
-  bool isOver;
+  late String id;
+  late String creatorId;
+  late String creatorName;
+  late String title;
+  late bool createdByAdmin;
+  late Timestamp createdTime;
+  late bool isOver;
 
   Message() {
     createdTime = Timestamp.now();

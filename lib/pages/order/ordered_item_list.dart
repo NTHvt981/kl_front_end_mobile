@@ -6,9 +6,8 @@ class OrderedItemList extends StatelessWidget {
   final List<Item> data;
 
   OrderedItemList({
-    Key key,
-    @required this.data
-  }): super(key: key);
+    required this.data
+  }): super();
 
   void onSelectItem(int pos) {
 

@@ -8,8 +8,8 @@ class CreateMessagePage extends StatefulWidget {
   final String userId;
 
   CreateMessagePage({
-    Key key,
-    @required this.userId
+    Key? key,
+    required this.userId
   }): super(key: key);
 
   @override

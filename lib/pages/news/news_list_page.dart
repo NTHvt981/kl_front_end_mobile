@@ -34,9 +34,10 @@ class _NewsListPageState extends State<NewsListPage> {
   }
 
   void onSelectNews(News news) {
-   route.ExtendedNavigator.root.push(Routes.newsDetailPage,
-       arguments: NewsDetailPageArguments(title: news.title, url: news.url)
-   );
+    context.router.push(NewsDetailPageRoute(title: news.title, url: news.url));
+   // route.ExtendedNavigator.root.push(Routes.newsDetailPage,
+   //     arguments: NewsDetailPageArguments(title: news.title, url: news.url)
+   // );
   }
 
   @override

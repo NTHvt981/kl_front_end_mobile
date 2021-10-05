@@ -2,13 +2,13 @@ import 'package:do_an_ui/models/setting.dart';
 import 'package:rxdart/rxdart.dart';
 
 class SettingService {
-  BehaviorSubject<Setting> itemBehavior;
+  late BehaviorSubject<Setting?> itemBehavior;
 
   SettingService() {
     itemBehavior = BehaviorSubject.seeded(null);
   }
 
-  Stream<Setting> getStream() {
+  Stream<Setting?> getStream() {
     return itemBehavior.stream;
   }
 

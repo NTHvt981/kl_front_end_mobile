@@ -1,6 +1,7 @@
 import 'package:do_an_ui/models/item.dart';
 import 'package:do_an_ui/models/order.dart';
 import 'package:do_an_ui/pages/order/ordered_item_list.dart';
+import 'package:do_an_ui/routes/router.gr.dart';
 import 'package:do_an_ui/services/item_service.dart';
 import 'package:do_an_ui/services/order_detail_service.dart';
 import 'package:do_an_ui/services/order_service.dart';
@@ -10,9 +11,10 @@ import 'package:flutter/material.dart';
 class OrderDetailPage extends StatefulWidget {
   final Order order;
 
+  // const OrderDetailPageRoute({required this.order});
   OrderDetailPage({
-    Key key,
-    @required this.order
+    Key? key,
+    required this.order
 }):super(key: key);
 
   @override

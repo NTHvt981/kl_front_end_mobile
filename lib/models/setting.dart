@@ -1,3 +1,3 @@
 class Setting {
-  String color;
+  late String color;
 }

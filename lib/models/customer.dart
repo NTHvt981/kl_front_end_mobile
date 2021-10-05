@@ -7,13 +7,13 @@ const POINT = 'SoDiemTichLuy';
 const TICKET = 'SoPhieuKhuyenMai';
 
 class Customer {
-  String id;
-  String name;
-  String phoneNumber;
-  String address;
-  String imageUrl;
-  int point;
-  int ticket;
+  late String id;
+  late String name;
+  late String phoneNumber;
+  late String address;
+  late String imageUrl;
+  late int point;
+  late int ticket;
 
   Customer(String _id) {
     id = _id;

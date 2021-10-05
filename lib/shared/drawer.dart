@@ -20,7 +20,10 @@ class _MyDrawerState extends State<MyDrawer> {
 
     auth.authStateChanges().listen((user) {
       if (user == null)
-        ExtendedNavigator.root.pop();
+      {
+        context.router.pop();
+        // ExtendedNavigator.root.pop();
+      }
       else
         setState(() {
           userId = user.uid;
@@ -29,43 +32,50 @@ class _MyDrawerState extends State<MyDrawer> {
   }
 
   void goToNewsList() {
-    route.ExtendedNavigator.root.replace(Routes.newsListPage);
+    context.router.replace(NewsListPageRoute());
+    // route.ExtendedNavigator.root.replace(Routes.newsListPage);
   }
 
   void goToClothesDetails() {
-    ExtendedNavigator.root.replace(Routes.clothesDetailPage,
-        arguments: ClothesDetailPageArguments(userId: userId));
+    context.router.replace(ClothesDetailPageRoute(userId: userId));
+    // ExtendedNavigator.root.replace(Routes.clothesDetailPage,
+    //     arguments: ClothesDetailPageArguments(userId: userId));
   }
 
   void goToClothesList() {
-    ExtendedNavigator.root.replace(Routes.clothesListPage,
-        arguments: ClothesListPageArguments(userId: userId));
+    context.router.replace(ClothesListPageRoute(userId: userId));
+    // ExtendedNavigator.root.replace(Routes.clothesListPage,
+    //     arguments: ClothesListPageArguments(userId: userId));
   }
 
   void goToOrderList() {
-    ExtendedNavigator.root.replace(Routes.orderListPage,
-        arguments: OrderListPageArguments(userId: userId));
+    context.router.replace(OrderListPageRoute(userId: userId));
+    // ExtendedNavigator.root.replace(Routes.orderListPage,
+    //     arguments: OrderListPageArguments(userId: userId));
   }
 
   void goToMessageList() {
-    ExtendedNavigator.root.replace(Routes.messageListPage,
-        arguments: MessageListPageArguments(userId: userId));
+    context.router.replace(MessageListPageRoute(userId: userId));
+    // ExtendedNavigator.root.replace(Routes.messageListPage,
+    //     arguments: MessageListPageArguments(userId: userId));
   }
 
   void goToCreateMessage() {
-    ExtendedNavigator.root.push(Routes.createMessagePage,
-        arguments: CreateMessagePageArguments(userId: userId));
+    context.router.replace(CreateMessagePageRoute(userId: userId));
+    // ExtendedNavigator.root.push(Routes.createMessagePage,
+    //     arguments: CreateMessagePageArguments(userId: userId));
   }
 
   void goToSetting() {
-    ExtendedNavigator.root.push(Routes.settingPage,
-        arguments: SettingPageArguments(userId: userId));
+    context.router.replace(SettingPageRoute(userId: userId));
+    // ExtendedNavigator.root.push(Routes.settingPage,
+    //     arguments: SettingPageArguments(userId: userId));
   }
 
   void logOut() {
     auth.signOut().then((value) {
-
-      route.ExtendedNavigator.root.popUntilPath(Routes.loginPage);
+      context.router.popUntilRouteWithName(LoginPageRoute.name);
+      // route.ExtendedNavigator.root.popUntilPath(Routes.loginPage);
     });
   }
 

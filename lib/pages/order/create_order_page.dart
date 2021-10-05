@@ -24,8 +24,8 @@ class CreateOrderPage extends StatefulWidget {
   final String userId;
 
   CreateOrderPage({
-    Key key,
-    @required this.userId
+    Key? key,
+    required this.userId
 }): super(key: key);
 
   @override
@@ -37,7 +37,7 @@ class _CreateOrderPageState extends State<CreateOrderPage> {
   int totalCost = 0;
   int ticket = 0;
   bool useTicket = false;
-  Customer customer;
+  late Customer customer;
 
   TextEditingController nameController = new TextEditingController();
   TextEditingController phoneController = new TextEditingController();
@@ -50,7 +50,7 @@ class _CreateOrderPageState extends State<CreateOrderPage> {
     super.initState();
 
     localItemService.forEach((key, s) {
-      Item item = s.itemBehavior.value;
+      Item? item = s.itemBehavior.value;
 
       if (item != null)
         {
@@ -60,12 +60,10 @@ class _CreateOrderPageState extends State<CreateOrderPage> {
     });
 
     customerService.readOnce(widget.userId).then((cus) {
-      nameController.text = cus.name;
+      nameController.text = cus!.name;
       phoneController.text = cus.phoneNumber;
       addressController.text = cus.address;
-
       ticket = cus.ticket;
-
       customer = cus;
     });
 
@@ -101,7 +99,7 @@ class _CreateOrderPageState extends State<CreateOrderPage> {
                     keyboardType: TextInputType.name,
                     decoration: InputDecoration(
                       labelText: 'What is your name?',
-                      errorText: snapshot.hasError? snapshot.error: null
+                      errorText: snapshot.hasError? snapshot.error.toString(): null
                     ),
                   );
                 }
@@ -114,7 +112,7 @@ class _CreateOrderPageState extends State<CreateOrderPage> {
                     keyboardType: TextInputType.phone,
                     decoration: InputDecoration(
                       labelText: 'What is your phone number?',
-                      errorText: snapshot.hasError? snapshot.error: null
+                      errorText: snapshot.hasError? snapshot.error.toString(): null
                     ),
                   );
                 }
@@ -129,7 +127,7 @@ class _CreateOrderPageState extends State<CreateOrderPage> {
                     maxLines: 5,
                     decoration: InputDecoration(
                       labelText: 'Where should we send you?',
-                      errorText: snapshot.hasError? snapshot.error: null
+                      errorText: snapshot.hasError? snapshot.error.toString(): null
                     ),
                   );
                 }
@@ -140,7 +138,7 @@ class _CreateOrderPageState extends State<CreateOrderPage> {
                   Checkbox(
                     value: this.useTicket, onChanged: (value) {
                       setState(() {
-                        useTicket = value;
+                        useTicket = value!;
                       });
                   },
                     activeColor: Colors.blue,  ),

@@ -1,6 +1,6 @@
 import 'dart:developer';
 
-import 'package:auto_route/auto_route.dart' as route;
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:do_an_ui/routes/router.gr.dart';
 
@@ -23,8 +23,9 @@ class _LoginPageState extends State<LoginPage> {
         password: passCon.value.text
     ).then((value) {
       log("Sign in success");
-      route.ExtendedNavigator.root.push(Routes.clothesDetailPage,
-          arguments: ClothesDetailPageArguments(userId: value.user.uid));
+      context.router.push(ClothesDetailPageRoute(userId: value.user!.uid));
+      // route.ExtendedNavigator.root.push(routes.clothesDetailPage,
+      //     arguments: ClothesDetailPageArguments(userId: value.user.uid));
     }).catchError((err) {
       var ex = err as FirebaseAuthException;
       var msg = ex.message;
@@ -33,7 +34,8 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   void goToSignUp() {
-    route.ExtendedNavigator.root.push(Routes.registerPage);
+    context.router.push(RegisterPageRoute());
+    // route.ExtendedNavigator.root.push(Routes.registerPage);
   }
 
 
@@ -43,8 +45,9 @@ class _LoginPageState extends State<LoginPage> {
 
     auth.authStateChanges().listen((event) {
       if (auth.currentUser != null)
-        route.ExtendedNavigator.root.replace(Routes.clothesDetailPage,
-          arguments: ClothesDetailPageArguments(userId: event.uid));
+        context.router.replace(ClothesDetailPageRoute(userId: event!.uid));
+        // route.ExtendedNavigator.root.replace(routes .clothesDetailPage,
+        //   arguments: ClothesDetailRouteArgs(userId: event!.uid));
     });
   }
 

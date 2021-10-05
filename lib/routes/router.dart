@@ -1,5 +1,4 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:auto_route/auto_route_annotations.dart';
 import 'package:do_an_ui/pages/clothes/clothes_list_page.dart';
 import 'package:do_an_ui/pages/clothes/clothes_detail_page.dart';
 import 'package:do_an_ui/pages/customer/setting_page.dart';
@@ -15,56 +14,22 @@ import 'package:do_an_ui/pages/order/order_detail_page.dart';
 import 'package:do_an_ui/pages/order/order_list_page.dart';
 import 'package:do_an_ui/pages/register_page.dart';
 
-@MaterialAutoRouter(routes: [
-  MaterialRoute(page: LoginPage, initial: true),
-
-  MaterialRoute(
-      page: RegisterPage
-  ),
-  MaterialRoute(page: DashboardPage),
-
-  CustomRoute(
-      page: NewsListPage,
-      transitionsBuilder: null
-  ),
-  MaterialRoute(page: NewsDetailPage),
-
-  CustomRoute(
-      page: ClothesDetailPage,
-      transitionsBuilder: null
-  ),
-  CustomRoute(
-      page: ClothesListPage,
-      transitionsBuilder: null
-  ),
-
-  CustomRoute(
-      page: CreateOrderPage,
-      transitionsBuilder: null
-  ),
-  MaterialRoute(
-      page: OrderDetailPage
-  ),
-  CustomRoute(
-      page: OrderListPage,
-      transitionsBuilder: null
-  ),
-
-  CustomRoute(
-      page: CreateMessagePage,
-      transitionsBuilder: null
-  ),
-  CustomRoute(
-      page: SettingPage,
-      transitionsBuilder: null
-  ),
-  MaterialRoute(
-      page: MessageDetailPage
-  ),
-  CustomRoute(
-      page: MessageListPage,
-      transitionsBuilder: null
-  ),
+@MaterialAutoRouter(
+    routes: [
+      AutoRoute(page: LoginPage, initial: true),
+      AutoRoute(page: RegisterPage),
+      AutoRoute(page: DashboardPage),
+      AutoRoute(page: NewsListPage),
+      AutoRoute(page: NewsDetailPage),
+      AutoRoute(page: ClothesDetailPage),
+      AutoRoute(page: ClothesListPage),
+      AutoRoute(page: CreateOrderPage),
+      AutoRoute(page: OrderDetailPage),
+      AutoRoute(page: OrderListPage),
+      AutoRoute(page: CreateMessagePage),
+      AutoRoute(page: SettingPage),
+      AutoRoute(page: MessageDetailPage),
+      AutoRoute(page: MessageListPage),
 ])
-class $MyRouter {
+class $AppRouter  {
 }

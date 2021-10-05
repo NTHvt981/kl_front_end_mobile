@@ -6,9 +6,9 @@ class NewsDetailPage extends StatelessWidget {
   final String url;
 
   NewsDetailPage({
-    Key key,
-    @required this.title,
-    @required this.url
+    Key? key,
+    required this.title,
+    required this.url
 }): super(key: key);
 
   @override

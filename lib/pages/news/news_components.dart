@@ -8,10 +8,9 @@ class NewsListTile extends StatelessWidget {
   final Function(News a) onSelect;
 
   NewsListTile({
-    Key key,
-    @required this.data,
-    @required this.onSelect
-}): super(key: key);
+    required this.data,
+    required this.onSelect
+}): super();
 
   @override
   Widget build(BuildContext context) {
