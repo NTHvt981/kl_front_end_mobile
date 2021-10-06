@@ -17,6 +17,11 @@ allprojects {
     repositories {
         google()
         jcenter()
+
+        flatDir
+        {
+            dirs project(':unityLibrary').file('libs')
+        }
     }
 }
 

@@ -51,7 +51,7 @@ dependencies:
   path_provider: ^2.0.5
   platform: ^3.0.2
 
-#  flutter_unity_widget: ^4.2.1
+  flutter_unity_widget: ^4.2.1
 
   flutter_number_picker:
     git: https://github.com/phuongtinhbien/flutter_number_picker.git

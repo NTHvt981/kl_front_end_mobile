@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:do_an_ui/pages/ar/ar_page.dart';
 import 'package:do_an_ui/pages/clothes/clothes_list_page.dart';
 import 'package:do_an_ui/pages/clothes/clothes_detail_page.dart';
 import 'package:do_an_ui/pages/customer/setting_page.dart';
@@ -30,6 +31,10 @@ import 'package:do_an_ui/pages/register_page.dart';
       AutoRoute(page: SettingPage),
       AutoRoute(page: MessageDetailPage),
       AutoRoute(page: MessageListPage),
+  CustomRoute(
+      page: ArPage,
+      transitionsBuilder: null
+  )
 ])
 class $AppRouter  {
 }
