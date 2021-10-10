@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 const SAVED_COLLECTION_PAGE = 0;
 const CLOTHES_DETAIL_PAGE = 1;
 const CREATE_ORDER_PAGE = 2;
+const AR_PAGE = 3;
 
 class ClothesBottomNavigation extends StatefulWidget {
   final int index;
@@ -68,6 +69,9 @@ class _ClothesBottomNavigationState extends State<ClothesBottomNavigation> {
         // ExtendedNavigator.root.replace(Routes.createOrderPage,
         //     arguments: CreateOrderPageArguments(userId: userId));
         break;
+      case AR_PAGE:
+        context.router.replace(ArPageRoute());
+        break;
     }
   }
 
@@ -86,9 +90,14 @@ class _ClothesBottomNavigationState extends State<ClothesBottomNavigation> {
         icon: Icon(Icons.add_shopping_cart),
         label: 'Order',
       ),
+      BottomNavigationBarItem(
+        icon: Icon(Icons.camera_alt_outlined),
+        label: 'AR',
+      ),
     ],
       currentIndex: widget.index,
       selectedItemColor: Colors.amber[800],
+      unselectedItemColor: Colors.grey,
       onTap: onSelect,
     );
   }

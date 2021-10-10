@@ -31,10 +31,7 @@ import 'package:do_an_ui/pages/register_page.dart';
       AutoRoute(page: SettingPage),
       AutoRoute(page: MessageDetailPage),
       AutoRoute(page: MessageListPage),
-  CustomRoute(
-      page: ArPage,
-      transitionsBuilder: null
-  )
+      AutoRoute(page: ArPage)
 ])
 class $AppRouter  {
 }

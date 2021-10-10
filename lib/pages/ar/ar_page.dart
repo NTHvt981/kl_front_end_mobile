@@ -3,7 +3,7 @@ import 'package:flutter_unity_widget/flutter_unity_widget.dart';
 
 class ArPage extends StatefulWidget {
   ArPage({
-    @required Key key,
+    Key? key,
   }): super(key: key);
 
   @override
@@ -11,7 +11,7 @@ class ArPage extends StatefulWidget {
 }
 
 class _ArPageState extends State<ArPage> {
-  UnityWidgetController _unityWidgetController;
+  UnityWidgetController? _unityWidgetController;
 
   @override
   Widget build(BuildContext context) {
