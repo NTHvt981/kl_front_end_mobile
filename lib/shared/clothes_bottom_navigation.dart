@@ -69,9 +69,6 @@ class _ClothesBottomNavigationState extends State<ClothesBottomNavigation> {
         // ExtendedNavigator.root.replace(Routes.createOrderPage,
         //     arguments: CreateOrderPageArguments(userId: userId));
         break;
-      case AR_PAGE:
-        context.router.replace(ArPageRoute());
-        break;
     }
   }
 
@@ -89,10 +86,6 @@ class _ClothesBottomNavigationState extends State<ClothesBottomNavigation> {
       BottomNavigationBarItem(
         icon: Icon(Icons.add_shopping_cart),
         label: 'Order',
-      ),
-      BottomNavigationBarItem(
-        icon: Icon(Icons.camera_alt_outlined),
-        label: 'AR',
       ),
     ],
       currentIndex: widget.index,

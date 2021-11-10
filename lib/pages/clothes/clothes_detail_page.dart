@@ -4,8 +4,8 @@ import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:do_an_ui/main.dart';
 import 'package:do_an_ui/models/item.dart';
-import 'package:do_an_ui/pages/clothes/clothes_components.dart';
 import 'package:do_an_ui/pages/clothes/select_item_dialog.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:do_an_ui/routes/router.gr.dart';
 import 'package:do_an_ui/services/clothes_collection_service.dart';
 import 'package:do_an_ui/services/item_service.dart';
@@ -16,6 +16,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:screenshot/screenshot.dart';
+
+import 'movable_item_widget.dart';
 
 class ClothesDetailPage extends StatefulWidget {
   final String userId;
@@ -33,7 +35,7 @@ class _ClothesDetailPageState extends State<ClothesDetailPage> {
   Offset hatOffset = Offset(150, 75);
   bool showItemPanel = false;
 
-  List<MovableItem> itemList = [];
+  List<MovableItemWidget> itemList = [];
   List<Item> allItems = [];
   List<Item> displayedItems = [];
 
@@ -54,7 +56,7 @@ class _ClothesDetailPageState extends State<ClothesDetailPage> {
       });
     });
 
-    setItemList();
+    setDefaultItemList();
   }
 
   void onItemPress(String _type) {
@@ -68,7 +70,7 @@ class _ClothesDetailPageState extends State<ClothesDetailPage> {
     SelectItemDialogHelper.show(context, _displayedItems, _type);
   }
 
-  void onItemMovePress(MovableItem caller) {
+  void onItemMovePress(MovableItemWidget caller) {
     setState(() {
       itemList.remove(caller);
       itemList.add(caller);
@@ -96,6 +98,20 @@ class _ClothesDetailPageState extends State<ClothesDetailPage> {
     });
   }
 
+  void goToArPage() {
+    List<MovableItemWidget> itemsForAr = [];
+    itemList.forEach((item) {
+        if (localItemService[item.type]!.itemBehavior.value != null)
+        {
+          item.imageUrl = localItemService[item.type]!.itemBehavior.value!.imageUrl;
+          itemsForAr.add(item);
+        }
+    });
+
+    debugPrint(itemsForAr.length.toString());
+    context.router.push(ArPageRoute(itemList: itemsForAr));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -104,6 +120,7 @@ class _ClothesDetailPageState extends State<ClothesDetailPage> {
         actions: [
           IconButton(icon: Icon(MyApp.ic_renew), onPressed: reNewAllItems),
           IconButton(icon: Icon(Icons.save), onPressed: saveCollection),
+          IconButton(icon: Icon(Icons.camera_alt_outlined), onPressed: goToArPage),
         ],
       ),
       drawer: MyDrawer(),
@@ -113,21 +130,7 @@ class _ClothesDetailPageState extends State<ClothesDetailPage> {
           controller: screenshotController,
           child: Stack(
             children: [
-              // Positioned(
-              //   child: Image.asset('images/bg/bg-1.jpg',
-              //     width: MediaQuery.of(context).size.width,
-              //     height: MediaQuery.of(context).size.height,),
-              //   left: 0, top: 0,),
-
               ...itemList,
-              // Positioned(
-              //   child: ItemToChooseList(
-              //     data: displayedItems,
-              //   ),
-              //   left: 0,
-              //   top: 0,
-              // ),
-
             ],
           ),
         ),
@@ -140,8 +143,8 @@ class _ClothesDetailPageState extends State<ClothesDetailPage> {
     );
   }
 
-  void setItemList() {
-    itemList.add(MovableItem(
+  void setDefaultItemList() {
+    itemList.add(MovableItemWidget(
       key: GlobalKey(),
       type: HAT,
       width: 50,
@@ -151,7 +154,7 @@ class _ClothesDetailPageState extends State<ClothesDetailPage> {
       imageUrl: 'images/icon_clothes_hat.png',
     ));
 
-    itemList.add(MovableItem(
+    itemList.add(MovableItemWidget(
       key: GlobalKey(),
       type: SHIRT,
       width: 125,
@@ -161,7 +164,7 @@ class _ClothesDetailPageState extends State<ClothesDetailPage> {
       imageUrl: 'images/icon_clothes_shirt.png',
     ));
 
-    itemList.add(MovableItem(
+    itemList.add(MovableItemWidget(
       key: GlobalKey(),
       type: PANTS,
       width: 150,
@@ -170,7 +173,7 @@ class _ClothesDetailPageState extends State<ClothesDetailPage> {
       onPositionPress: onItemMovePress,
       imageUrl: 'images/icon_clothes_pants.png',
     ));
-    itemList.add(MovableItem(
+    itemList.add(MovableItemWidget(
       key: GlobalKey(),
       type: SHOES,
       width: 50,
@@ -179,7 +182,7 @@ class _ClothesDetailPageState extends State<ClothesDetailPage> {
       onPositionPress: onItemMovePress,
       imageUrl: 'images/icon_clothes_shoes.png',
     ));
-    itemList.add(MovableItem(
+    itemList.add(MovableItemWidget(
       key: GlobalKey(),
       type: BACKPACK,
       width: 75,

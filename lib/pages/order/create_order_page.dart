@@ -149,15 +149,27 @@ class _CreateOrderPageState extends State<CreateOrderPage> {
           ),),
           SizedBox(
             width: double.infinity,
-            child: RaisedButton(
+            child: ElevatedButton(
               onPressed: createOrder,
               child: Text('ORDER'),
-              color: Theme.of(context).primaryColor,
-              textColor: Theme.of(context).buttonColor,
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.resolveWith<Color>(
+                        (Set<MaterialState> states) {
+                      if (states.contains(MaterialState.pressed))
+                        return Theme.of(context).backgroundColor;
+                      return Theme.of(context).primaryColor;
+                    },
+              ),
+                foregroundColor: MaterialStateProperty.resolveWith<Color>(
+                      (Set<MaterialState> states) {
+                    if (states.contains(MaterialState.pressed))
+                      return Theme.of(context).primaryColor;
+                    return Theme.of(context).backgroundColor;
+                  },
             ),
-          )
-        ],),
-      ),
+          ))
+        ,),]
+      ),),
       bottomNavigationBar: ClothesBottomNavigation(index: CREATE_ORDER_PAGE,),
     );
   }
